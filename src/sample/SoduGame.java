@@ -2,13 +2,13 @@ package sample;
 
 import javax.swing.*;
 
-public class Main{
+public class SoduGame {
 
 
     public static void main(String[] args) {
 //        launch(args);
 
-        Myframe myf=new Myframe();
+        SoduFrame myf=new SoduFrame();
         myf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //设置主界面的名称

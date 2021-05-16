@@ -208,7 +208,7 @@ public class Calculate implements Runnable {
         if (r) {
             for (int a1 = 0; a1 < 9; a1++) {
                 for (int b1 = 0; b1 < 9; b1++) {
-                    Myframe.filed[a1][b1].setText(b[a1][b1] + "");
+                    SoduFrame.filed[a1][b1].setText(b[a1][b1] + "");
                 }
             }
         }
