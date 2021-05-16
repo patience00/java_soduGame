@@ -1,6 +1,7 @@
 package sample;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -17,11 +18,25 @@ public class SoduFrame extends JFrame {
                 filed[a][b] = new JTextField();
                 filed[a][b].setText("");
                 filed[a][b].setFont(new Font("微软雅黑", 1, 14));
+
+                if ((a + 1) % 3 == 0 && b % 3 != 0) {
+                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 1, 4, new Color(156, 91, 43));
+                    filed[a][b].setBorder(lineBorder);
+                }
+                if (b % 3 == 0 && (a + 1) % 3 != 0) {
+                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 1, new Color(156, 91, 43));
+                    filed[a][b].setBorder(lineBorder);
+                }
+                if ((a + 1) % 3 == 0 && b % 3 == 0) {
+                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 4, new Color(156, 91, 43));
+                    filed[a][b].setBorder(lineBorder);
+                }
             }
         }
 
         // 编写布局，把textfield添加到布局中
         JPanel jpan = new JPanel();
+        jpan.setBorder(BorderFactory.createLineBorder(new Color(156, 91, 43)));
         jpan.setLayout(new GridLayout(9, 9));
         for (int a = 8; a > -1; a--) {
             for (int b = 0; b < 9; b++) {
