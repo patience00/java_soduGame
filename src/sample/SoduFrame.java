@@ -19,16 +19,30 @@ public class SoduFrame extends JFrame {
                 filed[a][b].setText("");
                 filed[a][b].setFont(new Font("微软雅黑", 1, 14));
 
-                if ((a + 1) % 3 == 0 && b % 3 != 0) {
-                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 1, 4, new Color(156, 91, 43));
-                    filed[a][b].setBorder(lineBorder);
+                // if ((a + 1) % 3 == 0 && b % 3 != 0) {
+                //     Border lineBorder = BorderFactory.createMatteBorder(0, 0, 1, 4, new Color(156, 91, 43));
+                //     filed[a][b].setBorder(lineBorder);
+                // }
+                // if (b % 3 == 0 && (a + 1) % 3 != 0) {
+                //     Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 1, new Color(156, 91, 43));
+                //     filed[a][b].setBorder(lineBorder);
+                // }
+                // if ((a + 1) % 3 == 0 && b % 3 == 0) {
+                //     Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 4, new Color(156, 91, 43));
+                //     filed[a][b].setBorder(lineBorder);
+                // }
+                Border eachBorder = BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(156, 91, 43));
+                filed[a][b].setBorder(eachBorder);
+                if ((a + 1) % 3 == 0) {
+                        Border lineBorder = BorderFactory.createMatteBorder(1, 1, 1, 4, new Color(156, 91, 43));
+                        filed[a][b].setBorder(lineBorder);
                 }
-                if (b % 3 == 0 && (a + 1) % 3 != 0) {
-                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 1, new Color(156, 91, 43));
-                    filed[a][b].setBorder(lineBorder);
+                if (b % 3 == 0) {
+                        Border lineBorder = BorderFactory.createMatteBorder(1, 1, 4, 1, new Color(156, 91, 43));
+                        filed[a][b].setBorder(lineBorder);
                 }
                 if ((a + 1) % 3 == 0 && b % 3 == 0) {
-                    Border lineBorder = BorderFactory.createMatteBorder(0, 0, 4, 4, new Color(156, 91, 43));
+                    Border lineBorder = BorderFactory.createMatteBorder(1, 1, 4, 4, new Color(156, 91, 43));
                     filed[a][b].setBorder(lineBorder);
                 }
             }
@@ -88,15 +102,7 @@ public class SoduFrame extends JFrame {
         // button2很简单，调用api关闭程序
         button2.addActionListener(event -> System.exit(0));
 
-        // 清空所有
-        clear.addActionListener(e -> {
-            for (int a = 0; a < 9; a++) {
-                for (int b = 0; b < 9; b++) {
-                    filed[a][b] = new JTextField();
-                    filed[a][b].setText("");
-                }
-            }
-        });
+
 
         // 聚焦改变背景色
         for (JTextField[] textFields : filed) {
@@ -114,7 +120,14 @@ public class SoduFrame extends JFrame {
                 });
             }
         }
-
+        // 清空所有
+        clear.addActionListener(e -> {
+            for (int a = 0; a < 9; a++) {
+                for (int b = 0; b < 9; b++) {
+                    filed[a][b].setText("");
+                }
+            }
+        });
         // 设置界面的布局
         add(jpb, BorderLayout.SOUTH);
     }
